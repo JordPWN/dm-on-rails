@@ -5,8 +5,14 @@ configure do
   end
 
   set :database, {
-    adapter: "sqlite3",
-    database: "db/db.sqlite3"
+    host: 'ec2-54-227-240-164.compute-1.amazonaws.com',
+    adapter: 'postgresql',  
+    encoding: 'unicode',
+    database: 'd2bbll5u10tib7', 
+    pool: 2, 
+    username: 'fzhcyfxzicjbds',
+    password: 'mIWOFvXg2rDhi18vk3I45adHCw',
+    port: 5432
   }
 
   # Load all models from app/models, using autoload instead of require
@@ -17,3 +23,4 @@ configure do
   end
 
 end
+
