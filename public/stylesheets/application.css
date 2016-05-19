@@ -10,3 +10,10 @@ nav.game-nav div[class^="col-"] {
 nav.game-nav button.btn {
   width: 100%;
 }
+
+/*#campaign-show {
+height: 400px;
+background-image: url(http://d.fastcompany.net/multisite_files/cocreate/imagecache/1280/article_feature/1280-dungeons-and-dragons.jpg);
+opacity: 0.7;
+
+}*/
