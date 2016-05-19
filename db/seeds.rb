@@ -1,28 +1,4 @@
-require 'rubygems'
-require 'bundler/setup'
-
-require 'active_support/all'
-
-require 'active_record'
 require 'faker'
-
-require './app/models/user'
-
-
-# Connect to the DB
-ActiveRecord::Base.establish_connection(
-  :adapter => 'sqlite3',
-  :database => "db/questions.sqlite3"
-)
-
-def table_exists? name
-  ActiveRecord::Base.connection.table_exists? name
-end
-
-# Recreate the database
-ActiveRecord::Migration.suppress_messages do
-  require './db/schema.rb'
-end
 
 @user = User.create(username: Faker::name, email: Faker::Internet.email, password: Faker::Internet.password)
 User.create(username: Faker::name, email: Faker::Internet.email, password: Faker::Internet.password)

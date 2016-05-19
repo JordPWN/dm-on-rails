@@ -3,10 +3,49 @@ body {
     padding-bottom: 80px;
 }
 
+a,
+a:hover,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+
 nav.game-nav div[class^="col-"] {
   padding: 0;
 }
 
 nav.game-nav button.btn {
   width: 100%;
+}
+
+.campaign-container {
+
+}
+
+.campaign-container .row {
+  margin-bottom: 2em;
+}
+
+.campaign-wrapper {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.campaign-wrapper img {
+  width: 100%;
+}
+
+.campaign-meta {
+  padding: 1em 0.8em 2em;
+}
+
+.campaign-meta>a>p:last-child {
+  margin: 0;
+}
+
+p.campaign-title {
+  font-size: 1.2em;
+}
+
+p.campaign-author {
+  font-size: 0.9em;
 }
