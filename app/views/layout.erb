@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <!-- custom stylesheet -->
   <link rel="stylesheet" href="/stylesheets/application.css">
-
-  <title>DM on Rails</title>
+  <title>  <%= !@campaign || @campaign.title.nil? ? "DM on Rails" : "#{@campaign.title} - DM on Rails" %></title>
 </head>
 <body>
   <%= erb :_navbar %>
