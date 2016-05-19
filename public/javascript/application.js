@@ -1,4 +1,7 @@
-$(function() {
+$( document ).ready(function() {
+
+	var beat_counter = parseInt($("#first-beat").val());
+
 
 	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e)
 	{
@@ -9,6 +12,18 @@ $(function() {
 			var preview = $(e.target.getAttribute('href') + ' > div');
 			preview.html(marked(editor.val()));
 		}
+	});
+
+	$('.next-beat').click(function(){
+		$("#beats-"+beat_counter).hide();
+		beat_counter++;
+		$("#beats-"+beat_counter).show();
+	});
+
+		$('.prev-beat').click(function(){
+		$("#beats-"+beat_counter).hide();
+		beat_counter--;
+		$("#beats-"+beat_counter).show();
 	});
 
 

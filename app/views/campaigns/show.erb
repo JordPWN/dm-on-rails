@@ -3,20 +3,14 @@
     <div class="col-sm-12 col-lg-12 col-sm-offset-0 col-lg-offset-0">
       <div class="jumbotron" id="campaign-show">
         <h1><%=  @campaign.title %></h1>
-        <p><a class="btn btn-success btn-lg" href="/campaigns/play" role="button">Start Campaign</a></p>
+        <p><a class="btn btn-success btn-lg" href="/campaigns/<%= @campaign.id %>/play" role="button">Start Campaign</a></p>
       </div>
     </div>
   </div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-lg-12 col-sm-offset-0 col-lg-offset-0">
-      <div class="well">
-          <p><%= @campaign.description %></p>
-        </div>
-      </div>
-    </div>
+  <div class="campaign-banner-button">
+    <a class="btn btn-success btn-lg" href="/campaigns/play" role="button">Start Campaign</a>
+  </div>
+  <div class="campaign-banner-description">
+    <h1><%=  @campaign.description %></h1>
   </div>
 </div>
