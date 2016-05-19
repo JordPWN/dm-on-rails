@@ -5,6 +5,7 @@ get '/campaigns/new' do
 end
 
 get '/campaigns/:id' do
+  erb :'campaigns/show'
 end
 
 get '/campaigns/:id/edit' do

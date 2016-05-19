@@ -9,20 +9,21 @@
 
   <!-- JQuery 1.9.1 -->
   <script src="/javascript/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="/javascript/bootstrap.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/98e5fce4e2.js"></script>
   <!-- Application script -->
   <script src="/javascript/application.js"></script>  
   <!-- bootstrap -->
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-  <!-- font awesome -->
-  <script src="https://use.fontawesome.com/98e5fce4e2.js"></script>
-  <!-- normalize.css -->
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
   <!-- custom stylesheet -->
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <title>DM on Rails</title>
 </head>
 <body>
+  <%= erb :navbar %>
   <%= yield %>
 </body>
 </html>
