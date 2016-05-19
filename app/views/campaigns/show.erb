@@ -1,22 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-lg-12 col-sm-offset-0 col-lg-offset-0">
-      <div class="jumbotron" id="campaign-show">
-        <h1><%=  @campaign.title %></h1>
-        <p><a class="btn btn-success btn-lg" href="/campaigns/play" role="button">Start Campaign</a></p>
-      </div>
-    </div>
+<div class="campaign-banner">
+  <img class="campaign-banner-img" src="http://placehold.it/1200x300">
+  <div class="campaign-banner-title">
+    <h1><%=  @campaign.title %></h1>
   </div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-lg-12 col-sm-offset-0 col-lg-offset-0">
-      <div class="well">
-          <p><%= @campaign.description %></p>
-        </div>
-      </div>
-    </div>
+  <div class="campaign-banner-button">
+    <a class="btn btn-success btn-lg" href="/campaigns/play" role="button">Start Campaign</a>
+  </div>
+  <div class="campaign-banner-description">
+    <h1><%=  @campaign.description %></h1>
   </div>
 </div>
