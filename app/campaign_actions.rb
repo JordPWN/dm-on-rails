@@ -1,3 +1,13 @@
+helpers do
+	def owns_campaign
+		@campaign = Campaign.find params[:id]
+		if !current_user.campaigns
+	    halt 403 
+	  end
+	end
+end
+
+
 get '/campaigns' do
 end
 
@@ -11,9 +21,11 @@ get '/campaigns/:id' do
 end
 
 get '/campaigns/:id/edit' do
+	# owns_campaign
 end
 
 get '/campaigns/delete' do
+	# owns_campaign
 end
 
 post '/campaigns/new' do

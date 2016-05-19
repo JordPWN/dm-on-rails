@@ -3,4 +3,8 @@ class Campaign < ActiveRecord::Base
 	has_many :beats
 
 	belongs_to :user
-end
+
+  validates :title, presence: true 
+  validates :description, presence: true 
+
+end 
