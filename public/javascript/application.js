@@ -1,11 +1,10 @@
-$(document).ready(function() {
+$(function() {
+  var beat_template = $('#beat-template').html();
   $('.new-beat-btn').click(function(e){
     e.preventDefault();
-    $('#beats-list').append(beat_field())
-  })
-  
-  function beat_field() {
     var beat_num = $('#beats-list>div.form-group').size() + 1;
-    return "<div class='form-group'><label for='Beat " + beat_num + "'>Beat " + beat_num + "</label><textarea class='form-control' rows='3' name='beat-" + beat_num + "'></textarea></div>";
-  }
+    // $.get( "/beats/new/" + beat_num, function( data ) { $('#beats-list').append( data ); });
+    $('#beats-list').append( beat_template.replace(/\{\{id\}\}/g, beat_num) );
+    // test(beat_num);
+  });
 });
