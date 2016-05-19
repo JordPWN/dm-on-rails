@@ -2,10 +2,11 @@ get '/campaigns' do
 end
 
 get '/campaigns/new' do
+  erb :'/campaigns/new'
 end
 
 get '/campaigns/:id' do
-  erb :'campaigns/show'
+  erb :'/campaigns/show'
 end
 
 get '/campaigns/:id/edit' do
