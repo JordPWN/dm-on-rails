@@ -5,16 +5,7 @@
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
-  -->
-
-  <!-- JQuery 1.9.1 -->
-  <script src="/javascript/jquery.min.js"></script>
-  <!-- Bootstrap JS -->
-  <script src="/javascript/bootstrap.min.js"></script>
-  <!-- font awesome -->
-  <script src="https://use.fontawesome.com/98e5fce4e2.js"></script>
-  <!-- Application script -->
-  <script src="/javascript/application.js"></script>  
+  --> 
   <!-- bootstrap -->
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <!-- custom stylesheet -->
@@ -25,5 +16,17 @@
 <body>
   <%= erb :_navbar %>
   <%= yield %>
+  <div id="scripts">
+    <!-- JQuery 1.9.1 -->
+    <script src="/javascript/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/javascript/bootstrap.min.js"></script>
+    <!-- font awesome -->
+    <script src="https://use.fontawesome.com/98e5fce4e2.js"></script>
+    <!-- Application script -->
+    <script src="/javascript/application.js"></script> 
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+  </div>
 </body>
 </html>

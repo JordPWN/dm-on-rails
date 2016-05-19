@@ -12,9 +12,29 @@
 
         <!-- beats list -->
         <div id="beats-list">    
-          <div class="form-group ">
+          <div class="form-group">
             <label for="beat-1">Beat 1</label>
-            <textarea id="beat-1" class="form-control" rows="3" name="beats[]"></textarea>
+            <div>
+
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#edit1" aria-controls="home" role="tab" data-toggle="tab">Edit</a></li>
+                <li role="presentation">
+                  <a href="#preview1" aria-controls="profile" role="tab" data-toggle="tab" data-role="preview">Preview</a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="edit1">
+                  <textarea id="beat-1" class="form-control" rows="3" name="beats[]"></textarea>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="preview1">
+                  <div></div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
@@ -29,8 +49,30 @@
 </div>
 
 <script type="text/template" id="beat-template">
-  <div class='form-group'>
+  <div class="form-group">
     <label for="beat-{{id}}">Beat {{id}}</label>
-    <textarea id="beat-{{id}}" class='form-control' rows='3' name='beats[]'></textarea>
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#edit{{id}}" aria-controls="home" role="tab" data-toggle="tab">Edit</a>
+        </li>
+        <li role="presentation">
+          <a href="#preview{{id}}" aria-controls="profile" role="tab" data-toggle="tab" data-role="preview">Preview</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="edit{{id}}">
+          <textarea id="beat-{{id}}" class="form-control" rows="3" name="beats[]"></textarea>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="preview{{id}}">
+          <div></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </script>

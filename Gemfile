@@ -14,6 +14,8 @@ gem 'pg'
 
 gem 'faker'
 
+gem 'markdown'
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
