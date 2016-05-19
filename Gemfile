@@ -12,6 +12,8 @@ gem 'puma'
 gem 'tux'
 gem 'pg'
 
+gem 'faker'
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
