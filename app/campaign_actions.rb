@@ -21,11 +21,13 @@ post '/campaigns/new' do
 		title: params[:title],
 		user: current_user
 	)
-	params[:beats].each do |new_beat, index|
+	index = 0
+	params[:beats].each do |new_beat|
 		new_campaign.beats.create(
 			order: index,
 			content: new_beat
 		)
+		index += 1
 	end
 	redirect "/campaigns/#{new_campaign.id}"
 end
@@ -33,6 +35,15 @@ end
 post '/campaigns/edit' do
 end
 
-get '/campaigns/play' do
+get '/campaigns/:id/play' do
+	# @my_beat = current_user.game.find_by(campaign_id: params[:id])
+	@my_beat = 0
+	@campaign = Campaign.find params[:id]
+	@campaign_beats = @campaign.beats.order(:order)
 	erb :'campaigns/play'
+end
+
+get '/campaigns/:id/play/:beat' do
+
+
 end
