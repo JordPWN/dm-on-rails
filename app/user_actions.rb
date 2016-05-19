@@ -12,7 +12,7 @@ get '/logout' do
 	redirect '/'
 end
 
-get 'login/as/:user_id' do |user_id|
+get '/login/as/:user_id' do |user_id|
   session[:user_id] = user_id
   redirect '/'
 end
