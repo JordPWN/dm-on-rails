@@ -11,6 +11,25 @@ end
 get '/campaigns' do
 end
 
+post '/campaigns/:id/copy' do
+	campaign = Campaign.find(params[:id])
+	new_campaign = Campaign.create(
+		title: campaign.title,
+		user_id: current_user.id,
+		origin: campaign.user_id,
+		url: campaign.url,
+		description: campaign.description
+		)
+	campaign.beats.each do |beat|
+		Beat.create(
+			ordinance: beat.ordinance,
+			content: beat.content,
+			campaign_id: new_campaign.id
+			)
+	end
+	redirect "/campaigns/#{new_campaign.id}"
+end
+
 get '/campaigns/new' do
   erb :'/campaigns/new'
 end
@@ -31,7 +50,7 @@ end
 post '/campaigns/new' do
 	new_campaign = Campaign.create(
 		title: params[:title],
-		user_id: @user.id
+		user_id: current_user.id
 	)
 	index = 0
 	params[:beats].each do |new_beat|

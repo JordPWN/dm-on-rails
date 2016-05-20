@@ -6,6 +6,11 @@
   <div class="campaign-banner-button">
     <a class="btn btn-success btn-lg" href="/campaigns/<%= @campaign.id %>/play" role="button">Start Campaign</a>
   </div>
+  <form action="/campaigns/<%= @campaign.id %>/copy" method="post">
+    <div class="campaign-copy-button">
+    <button class="btn btn-success btn-lg" name="copy_submit" input type="submit" value="">Copy Campaign</a>
+  </div>
+  </form>
   <div class="campaign-banner-description">
     <h1><%=  @campaign.description %></h1>
   </div>
