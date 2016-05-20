@@ -18,6 +18,9 @@ nav.game-nav button.btn {
   width: 100%;
 }
 
+.nav-bar {
+  margin: 0;
+}
 
 .campaign-container {
 
