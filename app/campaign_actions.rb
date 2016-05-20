@@ -1,7 +1,7 @@
 helpers do
 	def owns_campaign
 		@campaign = Campaign.find params[:id]
-		if !current_user.campaigns
+		if !@user.campaigns
 	    halt 403 
 	  end
 	end
@@ -31,7 +31,7 @@ end
 post '/campaigns/new' do
 	new_campaign = Campaign.create(
 		title: params[:title],
-		user: current_user
+		user_id: @user.id
 	)
 	index = 0
 	params[:beats].each do |new_beat|
@@ -51,6 +51,16 @@ get '/campaigns/:id/play' do
 	# @my_beat = current_user.game.find_by(campaign_id: params[:id])
 	@my_beat = 0
 	@campaign = Campaign.find params[:id]
+	@find_by_campaign = @user.games.find_by(campaign_id: @campaign.id)
+	if @find_by_campaign
+		@game = @find_by_campaign
+	else
+		@game = Game.create(
+			campaign_id: @campaign.id,
+			user_id: @user.id,
+			beat_id: @campaign.beats.find_by(order: 0).id
+		)
+	end
 	@campaign_beats = @campaign.beats.order(:order)
 	erb :'campaigns/play'
 end

@@ -2,6 +2,14 @@ $( document ).ready(function() {
 
 	var beat_counter = parseInt($("#first-beat").val());
 
+	var save_game_state function(current_beat){
+		// var abc = $('.next-beat').data('beat')
+		$.ajax({
+			url: 'games/save',
+			method: 'POST',
+			// data: {beat_id: @campaign.beat.find_by(order: current_beat), game_id: current_user.game_id.find_by(campaign_id: )}
+		});
+	};
 
 	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e)
 	{
@@ -18,12 +26,15 @@ $( document ).ready(function() {
 		$("#beats-"+beat_counter).hide();
 		beat_counter++;
 		$("#beats-"+beat_counter).show();
+		save_game_state(beat_counter);
+		$('#next-beat-form').
 	});
 
 		$('.prev-beat').click(function(){
 		$("#beats-"+beat_counter).hide();
 		beat_counter--;
 		$("#beats-"+beat_counter).show();
+		save_game_state(beat_counter);
 	});
 
 

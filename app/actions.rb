@@ -4,6 +4,10 @@ require_relative 'game_actions'
 require_relative 'campaign_actions'
 require_relative 'beats_actions'
 
+before do
+	@user = User.find(session['user_id']) if session['user_id']
+end
+
 helpers do
 
   def current_user
@@ -11,7 +15,7 @@ helpers do
   end
 
   def logged_in?
-    !current_user.nil?
+    !@user.nil?
   end
 
 end
