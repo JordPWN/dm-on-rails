@@ -9,6 +9,7 @@ end
 
 
 get '/campaigns' do
+	erb :'index'
 end
 
 post '/campaigns/:id/copy' do
