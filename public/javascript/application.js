@@ -16,10 +16,8 @@ $( document ).ready(function() {
 	};
 
 
-	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e)
-	{
-		if($(e.target).data('role') === "preview")
-		{
+	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e){
+		if($(e.target).data('role') === "preview"){
 			//Switched to preview
 			var editor = $(e.relatedTarget.getAttribute('href') + ' textarea');
 			var preview = $(e.target.getAttribute('href') + ' > div');
@@ -33,10 +31,8 @@ $( document ).ready(function() {
 
 	
 
-	$('.next-beat').click(function()
-	{
-		if(beat_counter+1 < all_beats.length)
-		{
+	$('.next-beat').click(function(){
+		if(beat_counter+1 < all_beats.length){
 			all_beats.hide();
 			showBeat(++beat_counter);
 			save_game_state();
@@ -55,8 +51,7 @@ $( document ).ready(function() {
 
 
 	var template = $('#beat-template');
-	if(template.length > 0)
-	{
+	if(template.length > 0){
 	  var beat_template = Handlebars.compile(template.html());
 	  $('.new-beat-btn').click(function(e){
 	    e.preventDefault();
@@ -72,19 +67,21 @@ $( document ).ready(function() {
   	}, function() {
     	$( this ).removeClass( "open" );
   });
- 
- 	$(document).on("mousemove", function(e){
- 		if(e.clientY > .66 * $(window).height()){
- 			$('#play-game-nav').addClass('shown');
- 		}else{
- 			$('#play-game-nav').removeClass('shown');
- 		}
- 		if(e.clientY < .33 * $(window).height()){
- 			$('#top-nav-bar').addClass('shown');
- 			$('#top-nav-bar').removeClass('hideme');
- 		}else{
- 			$('#top-nav-bar').removeClass('shown');
- 			$('#top-nav-bar').addClass('hideme');
- 		}
-	});
+  
+ 	if (/campaigns\/\d+\/play/.test(document.URL)){
+	 	$(document).on("mousemove", function(e){
+	 		if(e.clientY > .66 * $(window).height()){
+	 			$('#play-game-nav').addClass('shown');
+	 		}else{
+	 			$('#play-game-nav').removeClass('shown');
+	 		}
+	 		if(e.clientY < .33 * $(window).height()){
+	 			$('#top-nav-bar').addClass('shown');
+	 			$('#top-nav-bar').removeClass('hideme');
+	 		}else{
+	 			$('#top-nav-bar').removeClass('shown');
+	 			$('#top-nav-bar').addClass('hideme');
+	 		}
+		});
+	}
 });

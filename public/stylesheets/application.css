@@ -10,6 +10,11 @@ a:visited,
 a:focus {
   text-decoration: none;
 }
+#brand-logo {
+  top: 0;
+  height: 180%;
+  width: auto;
+}
 
 #top-nav-bar.hideme{
   top: -50px;
