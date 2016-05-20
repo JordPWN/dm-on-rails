@@ -15,7 +15,7 @@
             <div class="campaign-meta">
               <a href="/campaigns/40">
                 <p class="campaign-title">Shadow of Ages</p>
-                <p class="campaign-author">Eu eos doming nonumes, movet ancillae ex has. Mei mazim dolores probatus no, natum aperiam constituam ea eos, interesset complectitur te qui. Ut enim sale cum, porro adolescens in quo. Id his exerci interesset efficiantur, qui an laoreet gloriatur definitionem. Ad feugait persequeris has, mea et blandit reprimique.</p>
+                <p class="campaign-author">Created by: @moscow_mule55.</p>
               </a>
             </div>
           </div>
@@ -31,7 +31,7 @@
             <div class="campaign-meta">
               <a href="/campaigns/41">
                 <p class="campaign-title">The Unliving</p>
-                <p class="campaign-author">Graeci eleifend an vim, duo et sanctus cotidieque accommodare. Ius justo nulla delectus ea, dictas labitur splendide no sit. Te alia saepe antiopam has, pri habeo adipisci eu, eam amet tollit eu. Nec no idque graecis, an nam labitur hendrerit mediocritatem. Pri no meis suscipit signiferumque.</p>
+                <p class="campaign-author">Created by: @pop_pop32 based off of @hawthorne's 'The Living'.</p>
               </a>
             </div>
           </div>
@@ -50,13 +50,15 @@
             <div class="campaign-wrapper">
               <div class="campaign-img">
                 <a href="/campaigns/1">
-                  <img src="/campaigns/<%= campaign.url %>">
+                  <img src="<%= campaign.url %>">
                 </a>
               </div>
               <div class="campaign-meta">
                 <a href="/campaigns/<%= campaign.id %>">
                   <p class="campaign-title"><%= campaign.title %></p>
-                  <p class="campaign-author"><%= campaign.description%></p>
+                  <p class="campaign-author">
+                  Created by: @<%= User.find(campaign.user_id).username %>
+                  </p>
                 </a>
               </div>
             </div>

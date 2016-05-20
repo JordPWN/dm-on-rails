@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20160520160948) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.text     "url"
     t.string   "origin"
+    t.text     "url"
   end
 
   create_table "games", force: :cascade do |t|
