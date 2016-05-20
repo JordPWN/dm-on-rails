@@ -23,4 +23,11 @@ $(function() {
 	    $('#beats-list').append(beat_template({id: beat_num}));
 	  });
 	}
+
+	$('.dropdown').hover(
+		function() {
+    	$( this ).addClass( "open" );
+  	}, function() {
+    	$( this ).removeClass( "open" );
+  });
 });
