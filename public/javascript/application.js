@@ -1,15 +1,14 @@
 $( document ).ready(function() {
 
-	var beat_counter = parseInt($("#first-beat").val());
+	var beat_counter = parseInt($("#beat-order").val());
 
-	// var save_game_state function(current_beat){
-	// 	// var abc = $('.next-beat').data('beat')
-	// 	$.ajax({
-	// 		url: 'games/save',
-	// 		method: 'POST',
-	// 		// data: {beat_id: @campaign.beat.find_by(order: current_beat), game_id: current_user.game_id.find_by(campaign_id: )}
-	// 	});
-	// };
+	function save_game_state() {
+		$.ajax({
+			url: '/games/save',
+			method: 'POST',
+			data: {game_id: $('#game-id').val(), campaign_id: $('#campaign-id').val(), beat_order: beat_counter}
+		});
+	};
 
 	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e)
 	{
@@ -26,7 +25,7 @@ $( document ).ready(function() {
 		$("#beats-"+beat_counter).hide();
 		beat_counter++;
 		$("#beats-"+beat_counter).show();
-		save_game_state(beat_counter);
+		save_game_state();
 		
 	});
 
@@ -34,7 +33,7 @@ $( document ).ready(function() {
 		$("#beats-"+beat_counter).hide();
 		beat_counter--;
 		$("#beats-"+beat_counter).show();
-		save_game_state(beat_counter);
+		save_game_state();
 	});
 
 

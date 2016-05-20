@@ -48,13 +48,10 @@ post '/campaigns/edit' do
 end
 
 get '/campaigns/:id/play' do
-	# @my_beat = current_user.game.find_by(campaign_id: params[:id])
-	@my_beat = 0
 	@campaign = Campaign.find params[:id]
-	@find_by_campaign = @user.games.find_by(campaign_id: @campaign.id)
-	if @find_by_campaign
-		@game = @find_by_campaign
-	else
+	@game = @user.games.find_by(campaign_id: params[:id])
+	@beat_order = @game.beat.ordinance
+	unless @game
 		@game = Game.create(
 			campaign_id: @campaign.id,
 			user_id: @user.id,
