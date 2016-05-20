@@ -31,6 +31,8 @@ end
 post '/campaigns/new' do
 	new_campaign = Campaign.create(
 		title: params[:title],
+		url: params[:url],
+		description: params[:description],
 		user_id: @user.id
 	)
 	index = 0
@@ -50,13 +52,15 @@ end
 get '/campaigns/:id/play' do
 	@campaign = Campaign.find params[:id]
 	@game = @user.games.find_by(campaign_id: params[:id])
-	@beat_order = @game.beat.ordinance
 	unless @game
 		@game = Game.create(
 			campaign_id: @campaign.id,
 			user_id: @user.id,
 			beat_id: @campaign.beats.find_by(ordinance: 0).id
 		)
+		@beat_order = 0
+	else
+		@beat_order = @game.beat.ordinance
 	end
 	@campaign_beats = @campaign.beats.order(:ordinance)
 	erb :'campaigns/play'
