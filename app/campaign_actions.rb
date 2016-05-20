@@ -36,7 +36,7 @@ post '/campaigns/new' do
 	index = 0
 	params[:beats].each do |new_beat|
 		new_campaign.beats.create(
-			order: index,
+			ordinance: index,
 			content: new_beat
 		)
 		index += 1
@@ -58,10 +58,10 @@ get '/campaigns/:id/play' do
 		@game = Game.create(
 			campaign_id: @campaign.id,
 			user_id: @user.id,
-			beat_id: @campaign.beats.find_by(order: 0).id
+			beat_id: @campaign.beats.find_by(ordinance: 0).id
 		)
 	end
-	@campaign_beats = @campaign.beats.order(:order)
+	@campaign_beats = @campaign.beats.order(:ordinance)
 	erb :'campaigns/play'
 end
 

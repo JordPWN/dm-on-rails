@@ -7,17 +7,17 @@
         <input id="first-beat" type="hidden" value="<%= @my_beat %>">
 
           <div id="beats-<%= @my_beat %>" class="md-preview">
-            <%= Markdown.new(@campaign.beats.find_by(order: @my_beat).content).to_html.html_safe %>
+            <%= Markdown.new(@campaign.beats.find_by(ordinance: @my_beat).content).to_html.html_safe %>
           </div>
 
           <% @campaign.beats.each do |x| %>
-            <div id="beats-<%= x.order %>" class="md-preview" style="display: none">
+            <div id="beats-<%= x.ordinance %>" class="md-preview" style="display: none">
               <%= Markdown.new(x.content).to_html.html_safe %>
             </div>
             
           <% end %>
           
-          <%= Beat.find(@game.beats.find_by(campaign_id: @campaign.id)).order %>
+          <%= Beat.find(@game.beats.find_by(campaign_id: @campaign.id)).ordinance %>
       </div>
     </div>
   </div>
