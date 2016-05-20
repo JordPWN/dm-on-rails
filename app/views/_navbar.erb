@@ -1,4 +1,8 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<%if request.path_info == "/play" %>
+  <nav class="navbar navbar-default navbar-fixed-top hidden" id = "top-nav-bar">
+<% else %>
+  <nav class="navbar navbar-default navbar-fixed-top" id = "top-nav-bar">
+<% end %>
   <div class="container-fluid">
       <!-- branding -->
       <div class="navbar-header">
