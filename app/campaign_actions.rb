@@ -40,7 +40,13 @@ get '/campaigns/:id' do
 end
 
 get '/campaigns/:id/edit' do
+	@campaign = Campaign.find params[:id]
+	erb :'/campaigns/edit'
 	# owns_campaign
+end
+
+post '/campaigns/:id/post' do
+
 end
 
 get '/campaigns/delete' do
