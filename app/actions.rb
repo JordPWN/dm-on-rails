@@ -15,5 +15,6 @@ helpers do
 end
 
 get '/' do
+  @campaigns = Campaign.all
   erb :index
 end
