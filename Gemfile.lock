@@ -31,7 +31,8 @@ GEM
     backports (3.6.8)
     bond (0.5.1)
     builder (3.2.2)
-    coderay (1.1.1)
+    byebug (8.2.4)
+    coderay (1.1.0)
     daemons (1.2.3)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
@@ -130,6 +131,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  byebug
   faker
   kaminari
   markdown
