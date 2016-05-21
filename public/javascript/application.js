@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+	function showBeat(ord)
+	{
+		$('#beats-' + ord).show();
+	}
+
 	var beat_counter = parseInt($("#beat-order").val());
 
 	function save_game_state() {
@@ -10,10 +15,9 @@ $( document ).ready(function() {
 		});
 	};
 
-	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e)
-	{
-		if($(e.target).data('role') === "preview")
-		{
+
+	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e){
+		if($(e.target).data('role') === "preview"){
 			//Switched to preview
 			var editor = $(e.relatedTarget.getAttribute('href') + ' textarea');
 			var preview = $(e.target.getAttribute('href') + ' > div');
@@ -21,25 +25,32 @@ $( document ).ready(function() {
 		}
 	});
 
+	var all_beats = $('[id^=beats]');
+
+	showBeat(beat_counter);
+
+	
+
 	$('.next-beat').click(function(){
-		$("#beats-"+beat_counter).hide();
-		beat_counter++;
-		$("#beats-"+beat_counter).show();
-		save_game_state();
-		
+		if(beat_counter+1 < all_beats.length){
+			all_beats.hide();
+			showBeat(++beat_counter);
+			save_game_state();
+		}
 	});
 
-		$('.prev-beat').click(function(){
-		$("#beats-"+beat_counter).hide();
-		beat_counter--;
-		$("#beats-"+beat_counter).show();
-		save_game_state();
+	$('.prev-beat').click(function()
+	{
+		if(beat_counter > 0){
+			all_beats.hide();
+			showBeat(--beat_counter);
+			save_game_state();
+		}
 	});
 
 
 	var template = $('#beat-template');
-	if(template.length > 0)
-	{
+	if(template.length > 0){
 	  var beat_template = Handlebars.compile(template.html());
 	  $('.new-beat-btn').click(function(e){
 	    e.preventDefault();
@@ -55,4 +66,43 @@ $( document ).ready(function() {
   	}, function() {
     	$( this ).removeClass( "open" );
   });
+  
+ 	if (/campaigns\/\d+\/play/.test(document.URL)){
+	 
+	 	$(document).on("mousemove", function(e){
+	 		if(e.clientY > .66 * $(window).height()){
+	 			$('#play-game-nav').addClass('shown');
+	 		}else{
+	 			$('#play-game-nav').removeClass('shown');
+	 		}
+	 		if(e.clientY < .33 * $(window).height()){
+	 			$('#top-nav-bar').addClass('shown');
+	 			$('#top-nav-bar').removeClass('hideme');
+	 		}else{
+	 			$('#top-nav-bar').removeClass('shown');
+	 			$('#top-nav-bar').addClass('hideme');
+	 		}
+		});
+		$(document).keydown(function(e) {
+	    switch(e.which) {
+	        case 37: // left
+	        	if(beat_counter > 0){
+							all_beats.hide();
+							showBeat(--beat_counter);
+							save_game_state();
+						}
+	        	break;
+
+	        case 39: // right
+	        	if(beat_counter+1 < all_beats.length){
+							all_beats.hide();
+							showBeat(++beat_counter);
+							save_game_state();
+						}
+	        	break;
+	        default: return; // exit this handler for other keys
+	    }
+	    e.preventDefault(); // prevent the default action (scroll / move caret)
+		});
+	}
 });
