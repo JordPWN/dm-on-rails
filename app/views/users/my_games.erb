@@ -1,0 +1,19 @@
+<div class = "container" id="current-games">
+	<h1>Current Games</h1>
+	<div class="jcarousel">
+	<ul>
+	 	<% @games.each do |game| %>
+	 	<li>
+	 	<div class = "game-container">
+	    <img src="<%= game.campaign.url %>">
+	    </div>
+	    </li>
+	  <% end %>
+	  </ul>
+	  </div>
+	</div>
+</div>
+
+<!-- Prev/next controls -->
+  <a href="#" class="jcarousel-control-prev">&lsaquo; Prev</a>
+  <a href="#" class="jcarousel-control-next">Next &rsaquo;</a>
