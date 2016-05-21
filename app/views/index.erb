@@ -17,6 +17,9 @@
               <a href="/campaigns/<%= campaign.id %>">
                 <p class="campaign-title"><%= campaign.title %></p>
                 <p class="campaign-author">Created by: @<%= User.find(campaign.user_id).username %></p>
+                <p class="campaign-author">
+                Origin: @origin
+                </p>
               </a>
             </div>
           </div>
@@ -44,6 +47,9 @@
                 <p class="campaign-title"><%= campaign.title %></p>
                 <p class="campaign-author">
                 Created by: @<%= User.find(campaign.user_id).username %>
+                </p>
+                <p class="campaign-author">
+                Origin: @origin
                 </p>
               </a>
             </div>
@@ -91,7 +97,6 @@
             <li>
               <a href="/?pageid=<%=i%>"><%=i%></a>
             </li>
-
             <% end %>
           <% end %>
           
