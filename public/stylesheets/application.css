@@ -126,7 +126,8 @@ p.campaign-author {
 }
 
 .campaign-banner-button,
-.campaign-copy-button {
+.campaign-copy-button,
+.campaign-edit-button {
   display: inline-block;
 }
 
