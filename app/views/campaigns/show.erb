@@ -1,17 +1,38 @@
 <div class="campaign-banner">
-  <img class="campaign-banner-img" src="<%= @campaign.url %>">
-  <div class="campaign-banner-title">
-    <h1><%=  @campaign.title %></h1>
+  <img class="campaign-banner-img" src="http://placehold.it/1200x600">
+  <div class="container campaign-banner-top">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="campaign-banner-title">
+          <h1><%=  @campaign.title %></h1>
+        </div>
+        <div class="campaign-banner-description">
+          <h4><%=  @campaign.description %></h4>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="campaign-banner-button">
-    <a class="btn btn-success btn-lg" href="/campaigns/<%= @campaign.id %>/play" role="button">Start Campaign</a>
-  </div>
-  <form action="/campaigns/<%= @campaign.id %>/copy" method="post">
-    <div class="campaign-copy-button">
-    <button class="btn btn-success btn-lg" name="copy_submit" input type="submit" value="">Copy Campaign</a>
-  </div>
-  </form>
-  <div class="campaign-banner-description">
-    <h1><%=  @campaign.description %></h1>
+
+  <div class="container campaign-banner-bottom">
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- start/resume button -->
+        <div class="campaign-banner-button">
+          <a class="btn btn-default btn-lg" href="/campaigns/<%= @campaign.id %>/play" role="button">Start Campaign</a>
+        </div>
+        <!-- copy button -->
+        <form action="/campaigns/<%= @campaign.id %>/copy" method="post" class="campaign-copy-button">
+          <div>
+            <a class="btn btn-default btn-lg" name="copy_submit" input type="submit" value="">Copy Campaign</a>
+          </div>
+        </form>
+        <!-- edit button -->
+        <% if @user.id == @campaign.user_id %>
+        <div class="campaign-edit-button">
+          <a class="btn btn-default btn-lg" href="/campaigns/<%= @campaign.id %>/edit" role="button">Edit Campaign</a>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -65,7 +65,13 @@ nav.game-nav button.btn {
 }
 
 .campaign-wrapper {
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  background-color: rgba(255,255,255,0.1);
+  
+}
+
+.campaign-wrapper:hover {
+  box-shadow: 0 5px 10px 0 rgba(217, 43, 84, 0.16),
+              0 5px 15px 0 rgba(217, 43, 84, 0.12);
 }
 
 .campaign-wrapper img {
@@ -94,24 +100,65 @@ p.campaign-author {
   margin-top: -30px;
 }
 
+.campaign-banner .container {
+  width: 100%;
+}
+
 .campaign-banner img {
   width: 100%;
 }
 
-.campaign-banner-title {
+.campaign-banner-top {
   position: absolute;
-  top: 2em;
-  left: 5em;
+  top: 0; 
 }
 
-.campaign-banner-button {
+.campaign-banner-bottom {
   position: absolute;
-  bottom: 2em;
-  right: 5em;
+  bottom: 0; 
+  padding-bottom: 5em;
+  text-align: center; 
 }
 
+.campaign-banner-title,
 .campaign-banner-description {
-  position: absolute;
-  bottom: 2em;
-  left: 5em;
+  text-shadow: 0px 2px 6px rgba(150, 150, 150, 0.6);
 }
+
+.campaign-banner-button,
+.campaign-copy-button,
+.campaign-edit-button {
+  display: inline-block;
+}
+
+/* override bootstrap components*/
+.form-control {
+  border: none;
+}
+
+.nav-tabs > li > a:hover {
+    color: #000;
+}
+
+textarea[name="beats[]"]:focus {
+  height: 200px;
+}
+
+.btn {
+  border: 0.2em solid;
+  -webkit-transform: skew(-8deg);
+  -ms-transform: skew(-8deg);
+  -o-transform: skew(-8deg);
+  transform: skew(-8deg);
+  background: 0 0;
+  -o-transition: .3s background ease,.3s border ease;
+  transition: .3s background ease,.3s border ease;
+}
+
+.btn:hover, 
+.btn:focus, 
+.btn.focus {
+  background-color: #D92B54;
+  border-color: #D92B54;
+}
+
