@@ -5,10 +5,6 @@
         <input id="beat-order" type="hidden" value="<%= @beat_order %>">
         <input id="game-id" type="hidden" value="<%= @game.id %>">
         <input id="campaign-id" type="hidden" value="<%= @campaign.id %>">
-          <div id="beats-<%= @beat_order %>" class="md-preview">
-            <%= Markdown.new(@campaign.beats.find_by(ordinance: @beat_order).content).to_html.html_safe %>
-          </div>
-
           <% @campaign.beats.each do |x| %>
             <div id="beats-<%= x.ordinance %>" class="md-preview" style="display: none">
               <%= Markdown.new(x.content).to_html.html_safe %>
@@ -19,8 +15,7 @@
     </div>
   </div>
 </div>
-
-<nav class="game-nav navbar navbar-default navbar-fixed-bottom">
+<nav class="game-nav navbar navbar-default navbar-fixed-bottom" id="play-game-nav">
   <div class="">
     <div class="col-xs-4">
       <button class="btn btn-default prev-beat">PREV</button>
@@ -29,7 +24,7 @@
       <button class="btn btn-default">EXIT</button>
     </div>
     <div class="col-xs-4">
-        <button class="btn btn-default next-beat" data-game="123">NEXT</button>
+        <button class="btn btn-default next-beat">NEXT</button>
     </div>
   </div>
 </nav>

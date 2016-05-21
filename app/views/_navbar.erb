@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" id = "top-nav-bar">
   <div class="container-fluid">
       <!-- branding -->
       <div class="navbar-header">
@@ -9,24 +9,24 @@
           <span class="icon-bar"></span> 
           <span class="icon-bar"></span> 
         </button>
-        <a class="navbar-brand" href="/">DM on Rails</a>
+        <a class="navbar-brand" href="/"><img src= "/images/dm on rails logo.png" id = "brand-logo"></a>
       </div>
       <!-- dropdown -->
       <div id="navbar" class="navbar-collapse collapse navbar-right">
         <ul class="nav navbar-nav">
-
+        <% if logged_in? %>
         <!-- campaign dropdown -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false">
-            Campaigns
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="/">My Campaigns</a></li>
-            <li><a href="/campaigns/new">New Campaign</a></li>
-          </ul>
-        </li>
-
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false">
+              Campaigns
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/">My Campaigns</a></li>
+              <li><a href="/campaigns/new">New Campaign</a></li>
+            </ul>
+          </li>
+        <% end %>
         <!-- user dropdown -->
           <% if logged_in? %>
           <li class="dropdown">
