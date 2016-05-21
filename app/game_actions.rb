@@ -1,5 +1,5 @@
-get '/games' do 
-	#display your current games
+get '/games' do
+	#display your current games, also beats.
 end
 
 post '/games/save' do
