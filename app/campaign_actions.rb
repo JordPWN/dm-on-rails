@@ -34,7 +34,9 @@ end
 get '/campaigns/new' do
   erb :'/campaigns/new'
 end
-
+	get '/campaigns/testcue' do
+		erb :'campaigns/test_cue'
+	end
 get '/campaigns/:id' do
 	@campaign = Campaign.find params[:id]
   erb :'/campaigns/show'
@@ -89,6 +91,8 @@ post '/campaigns/:id/edit' do
 				)
 		end
 	end
+
+
 
 
 	redirect "/campaigns/#{campaign.id}"

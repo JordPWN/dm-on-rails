@@ -19,10 +19,10 @@ gem 'markdown'
 gem 'kaminari', :require => 'kaminari/sinatra'
 
 gem 'sinatra-paginate', '~> 0.1.0'
-
+gem 'pry'
 
 group :development, :test do
-  gem 'pry'
+
   gem 'byebug'
   gem 'shotgun'
   gem 'sqlite3'
