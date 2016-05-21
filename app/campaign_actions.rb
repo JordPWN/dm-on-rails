@@ -72,23 +72,42 @@ post '/campaigns/new' do
 	redirect "/campaigns/#{new_campaign.id}"
 end
 
-post '/campaigns/edit' do
+post '/campaigns/:id/edit' do
+	campaign = Campaign.find params[:id]
+	campaign.update(
+		title: params[:title],
+		url: params[:url],
+		description: params[:description],
+	)
+	params[:beats].each_with_index do |updated, index|
+		if index < campaign.beats.count
+			campaign.beats.find_by(ordinance: index).update(content: updated)
+		else
+			campaign.beats.create(
+				ordinance: index,
+				content: updated
+				)
+		end
+	end
+
+
+	redirect "/campaigns/#{campaign.id}"
 end
 
 get '/campaigns/:id/play' do
-	@campaign = Campaign.find params[:id]
-	@game = @user.games.find_by(campaign_id: params[:id])
-	unless @game
-		@game = Game.create(
-			campaign_id: @campaign.id,
-			user_id: @user.id,
-			beat_id: @campaign.beats.find_by(ordinance: 0).id
+	campaign = Campaign.find params[:id]
+	game = user.games.find_by(campaign_id: params[:id])
+	unless game
+		game = Game.create(
+			campaign_id: campaign.id,
+			user_id: user.id,
+			beat_id: campaign.beats.find_by(ordinance: 0).id
 		)
-		@beat_order = 0
+		beat_order = 0
 	else
-		@beat_order = @game.beat.ordinance
+		beat_order = game.beat.ordinance
 	end
-	@campaign_beats = @campaign.beats.order(:ordinance)
+	campaign_beats = campaign.beats.order(:ordinance)
 	erb :'campaigns/play'
 end
 
