@@ -1,3 +1,5 @@
+
+
 <div class="container campaign-container">
   <!-- first row -->
   <div class="row">
@@ -40,12 +42,8 @@
       </div>
     </div>
   </div>
-  <!-- second row -->
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="row">
-        <!-- first item -->
-        <% @campaigns.each do |campaign| %>
+        <% @campaigns.each_with_index do |campaign,index| %>
+             <% if index>=@startIndex && index<= @endIndex  %>
           <div class="col-lg-4">
             <div class="campaign-wrapper">
               <div class="campaign-img">
@@ -63,9 +61,20 @@
               </div>
             </div>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
 
 </div>
+
+
+<!-- Page numbers or Pagination -->
+<% for i in 1..@total_pages  %>
+  <% if i == @current_page %>
+      <%=i%>
+  <% else %>
+      <a href="/?pageid=<%=i%>"><%=i%> </a>
+  <% end %>
+<% end %>

@@ -8,6 +8,8 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
+require 'sinatra/paginate'
+
 require 'pry'
 
 require 'markdown'
@@ -31,3 +33,5 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+register Sinatra::Paginate

@@ -16,6 +16,11 @@ gem 'faker'
 
 gem 'markdown'
 
+gem 'kaminari', :require => 'kaminari/sinatra'
+
+gem 'sinatra-paginate', '~> 0.1.0'
+
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
