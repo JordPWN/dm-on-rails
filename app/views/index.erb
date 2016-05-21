@@ -2,20 +2,20 @@
   <!-- first row -->
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
-      <h1>Home Page</h1>
+      <h1>DM on Rails</h1>
       <div class="row">
         <!-- first item -->
         <div class="col-lg-6 ">
           <div class="campaign-wrapper">
             <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
+              <a href="/campaigns/40">
+                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
               </a>
             </div>
             <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number One</p>
-                <p class="campaign-author">Author</p>
+              <a href="/campaigns/40">
+                <p class="campaign-title">Shadow of Ages</p>
+                <p class="campaign-author">Created by: @moscow_mule55.</p>
               </a>
             </div>
           </div>
@@ -24,14 +24,14 @@
         <div class="col-lg-6 ">
           <div class="campaign-wrapper">
             <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
+              <a href="/campaigns/41">
+                <img src="http://pre11.deviantart.net/bc80/th/pre/i/2012/186/2/c/rpg_cover_by_thebastardson-d5624r9.jpg">
               </a>
             </div>
             <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number One</p>
-                <p class="campaign-author">Author</p>
+              <a href="/campaigns/41">
+                <p class="campaign-title">The Unliving</p>
+                <p class="campaign-author">Created by: @pop_pop32 based off of @hawthorne's 'The Living'.</p>
               </a>
             </div>
           </div>
@@ -45,108 +45,25 @@
     <div class="col-lg-10 col-lg-offset-1">
       <div class="row">
         <!-- first item -->
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number One</p>
-                <p class="campaign-author">Author</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- second item -->
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number Two</p>
-                <p class="campaign-author">Author</p>
-              </a>
+        <% @campaigns.each do |campaign| %>
+          <div class="col-lg-4">
+            <div class="campaign-wrapper">
+              <div class="campaign-img">
+                <a href="/campaigns/1">
+                  <img src="<%= campaign.url %>">
+                </a>
+              </div>
+              <div class="campaign-meta">
+                <a href="/campaigns/<%= campaign.id %>">
+                  <p class="campaign-title"><%= campaign.title %></p>
+                  <p class="campaign-author">
+                  Created by: @<%= User.find(campaign.user_id).username %>
+                  </p>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- third item -->
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number Three</p>
-                <p class="campaign-author">Author</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- third row -->
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="row">
-        <!-- first item -->
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number One</p>
-                <p class="campaign-author">Author</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- second item -->
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number Two</p>
-                <p class="campaign-author">Author</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- third item -->
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/1">
-                <img src="http://placehold.it/500x250">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/1">
-                <p class="campaign-title">Campaign Number Three</p>
-                <p class="campaign-author">Author</p>
-              </a>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
