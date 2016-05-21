@@ -66,7 +66,7 @@ nav.game-nav button.btn {
 
 .campaign-wrapper {
   background-color: rgba(255,255,255,0.1);
-  
+  margin-bottom: 2em;
 }
 
 .campaign-wrapper:hover {
@@ -87,7 +87,7 @@ nav.game-nav button.btn {
 }
 
 p.campaign-title {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 p.campaign-author {
@@ -144,7 +144,10 @@ textarea[name="beats[]"]:focus {
   height: 200px;
 }
 
-.btn {
+.btn,
+.pagination>li>a,
+.pagination>li>a:first-child,
+.pagination>li>a:last-child {
   border: 0.2em solid;
   -webkit-transform: skew(-8deg);
   -ms-transform: skew(-8deg);
@@ -153,12 +156,20 @@ textarea[name="beats[]"]:focus {
   background: 0 0;
   -o-transition: .3s background ease,.3s border ease;
   transition: .3s background ease,.3s border ease;
+  border-radius: 0;
 }
 
 .btn:hover, 
 .btn:focus, 
-.btn.focus {
+.btn.focus,
+.pagination>li>a:hover,
+.pagination>li>a:focus,
+.pagination>li.active>a,
+.pagination>li.active>a:hover {
   background-color: #D92B54;
   border-color: #D92B54;
 }
 
+.pagination {
+  margin: 0;
+}

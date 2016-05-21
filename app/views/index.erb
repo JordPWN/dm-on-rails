@@ -1,80 +1,109 @@
-
-
 <div class="container campaign-container">
   <!-- first row -->
   <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
+    <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1">
       <h1>Featured Campaigns</h1>
       <div class="row">
-        <!-- first item -->
+        <% @featured_campaigns.each do |campaign| %>
+        <!-- featured items -->
         <div class="col-lg-6 col-md-6">
           <div class="campaign-wrapper">
             <div class="campaign-img">
-              <a href="/campaigns/40">
+              <a href="/campaigns/<%= campaign.id %>">
                 <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
               </a>
             </div>
             <div class="campaign-meta">
-              <a href="/campaigns/40">
-                <p class="campaign-title">Shadow of Ages</p>
-                <p class="campaign-author">Created by: @moscow_mule55.</p>
+              <a href="/campaigns/<%= campaign.id %>">
+                <p class="campaign-title"><%= campaign.title %></p>
+                <p class="campaign-author">Created by: @<%= User.find(campaign.user_id).username %></p>
               </a>
             </div>
           </div>
         </div>
-        <!-- second item -->
-        <div class="col-lg-6 col-md-6">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/41">
-                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/41">
-                <p class="campaign-title">The Unliving</p>
-                <p class="campaign-author">Created by: @pop_pop32 based off of @hawthorne's 'The Living'.</p>
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <% end %>
       </div>
     </div>
   </div>
-        <% @campaigns.each_with_index do |campaign,index| %>
-             <% if index>=@startIndex && index<= @endIndex  %>
-          <div class="col-lg-4">
-            <div class="campaign-wrapper">
-              <div class="campaign-img">
-                <a href="/campaigns/1">
-                  <img src="<%= campaign.url %>">
-                </a>
-              </div>
-              <div class="campaign-meta">
-                <a href="/campaigns/<%= campaign.id %>">
-                  <p class="campaign-title"><%= campaign.title %></p>
-                  <p class="campaign-author">
-                  Created by: @<%= User.find(campaign.user_id).username %>
-                  </p>
-                </a>
-              </div>
+
+  <!-- other campaigns -->
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1">
+      <div class="row">
+      <% @campaigns.each_with_index do |campaign,index| %>
+        <% if index >= @startIndex && index <= @endIndex %>
+        <div class="col-lg-4">
+          <div class="campaign-wrapper">
+            <div class="campaign-img">
+              <a href="/campaigns/<%= campaign.id %>">
+                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
+              </a>
+            </div>
+            <div class="campaign-meta">
+              <a href="/campaigns/<%= campaign.id %>">
+                <p class="campaign-title"><%= campaign.title %></p>
+                <p class="campaign-author">
+                Created by: @<%= User.find(campaign.user_id).username %>
+                </p>
+              </a>
             </div>
           </div>
-          <% end %>
+        </div>
         <% end %>
+      <% end %>
       </div>
+    </div>
+  </div>
+
+  <!-- Page numbers or Pagination -->
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1 text-center">
+      <nav>
+        <ul class="pagination pagination-lg">
+          <% for i in 1..@total_pages %>
+            <% if i == 1 && @current_page > 1 %>
+            <li class="">
+              <a href="/?pageid=<%=@current_page-1%>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+            <li>
+              <a href="/?pageid=<%=i%>"><%=i%></a>
+            </li>
+
+            <% elsif i == 1 && @current_page == 1 %>
+            <li class="active">
+              <a href="/?pageid=<%=i%>"><%=i%><span class="sr-only">(current)</span></a>
+            </li>
+
+            <% elsif i == @total_pages &&  @current_page == @total_pages %>
+            <li class="active">
+              <a href="/?pageid=<%=i%>"><%=i%></a>
+            </li>
+
+            <% elsif i == @total_pages && @current_page < @total_pages %>
+            <li>
+              <a href="/?pageid=<%=i%>"><%=i%></a>
+            </li>
+            <li class="">
+              <a href="/?pageid=<%=@current_page+1%>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+
+            <% else %>
+            <li>
+              <a href="/?pageid=<%=i%>"><%=i%></a>
+            </li>
+
+            <% end %>
+          <% end %>
+          
+        </ul>
+      </nav>
     </div>
   </div>
 
 </div>
 
 
-<!-- Page numbers or Pagination -->
-<% for i in 1..@total_pages  %>
-  <% if i == @current_page %>
-      <%=i%>
-  <% else %>
-      <a href="/?pageid=<%=i%>"><%=i%> </a>
-  <% end %>
-<% end %>
+      
+  
+  
+
