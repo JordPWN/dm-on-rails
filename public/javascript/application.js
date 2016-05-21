@@ -41,8 +41,7 @@ $( document ).ready(function() {
 
 	$('.prev-beat').click(function()
 	{
-		if(beat_counter > 0)
-		{
+		if(beat_counter > 0){
 			all_beats.hide();
 			showBeat(--beat_counter);
 			save_game_state();
@@ -69,6 +68,7 @@ $( document ).ready(function() {
   });
   
  	if (/campaigns\/\d+\/play/.test(document.URL)){
+	 
 	 	$(document).on("mousemove", function(e){
 	 		if(e.clientY > .66 * $(window).height()){
 	 			$('#play-game-nav').addClass('shown');
@@ -82,6 +82,27 @@ $( document ).ready(function() {
 	 			$('#top-nav-bar').removeClass('shown');
 	 			$('#top-nav-bar').addClass('hideme');
 	 		}
+		});
+		$(document).keydown(function(e) {
+	    switch(e.which) {
+	        case 37: // left
+	        	if(beat_counter > 0){
+							all_beats.hide();
+							showBeat(--beat_counter);
+							save_game_state();
+						}
+	        	break;
+
+	        case 39: // right
+	        	if(beat_counter+1 < all_beats.length){
+							all_beats.hide();
+							showBeat(++beat_counter);
+							save_game_state();
+						}
+	        	break;
+	        default: return; // exit this handler for other keys
+	    }
+	    e.preventDefault(); // prevent the default action (scroll / move caret)
 		});
 	}
 });
