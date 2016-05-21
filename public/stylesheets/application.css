@@ -164,8 +164,8 @@ textarea[name="beats[]"]:focus {
 .btn.focus,
 .pagination>li>a:hover,
 .pagination>li>a:focus,
-.pagination > .active > a,
-.pagination > .active > a:hover {
+.pagination>li.active>a,
+.pagination>li.active>a:hover {
   background-color: #D92B54;
   border-color: #D92B54;
 }

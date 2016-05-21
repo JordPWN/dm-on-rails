@@ -57,11 +57,11 @@
 
   <!-- Page numbers or Pagination -->
   <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1">
+    <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1 text-center">
       <nav>
         <ul class="pagination pagination-lg">
           <% for i in 1..@total_pages %>
-            <% if i == 1 && @current_page > 1%>
+            <% if i == 1 && @current_page > 1 %>
             <li class="">
               <a href="/?pageid=<%=@current_page-1%>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
             </li>
@@ -74,7 +74,12 @@
               <a href="/?pageid=<%=i%>"><%=i%><span class="sr-only">(current)</span></a>
             </li>
 
-            <% elsif i == @total_pages &&  @current_page < @total_pages %>
+            <% elsif i == @total_pages &&  @current_page == @total_pages %>
+            <li class="active">
+              <a href="/?pageid=<%=i%>"><%=i%></a>
+            </li>
+
+            <% elsif i == @total_pages && @current_page < @total_pages %>
             <li>
               <a href="/?pageid=<%=i%>"><%=i%></a>
             </li>
@@ -94,6 +99,7 @@
       </nav>
     </div>
   </div>
+
 </div>
 
 
