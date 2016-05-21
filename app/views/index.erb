@@ -1,68 +1,56 @@
-
-
 <div class="container campaign-container">
   <!-- first row -->
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
       <h1>Featured Campaigns</h1>
       <div class="row">
-        <!-- first item -->
+        <% @featured_campaigns.each do |campaign| %>
+        <!-- featured items -->
         <div class="col-lg-6 col-md-6">
           <div class="campaign-wrapper">
             <div class="campaign-img">
-              <a href="/campaigns/40">
+              <a href="/campaigns/<%= campaign.id %>">
                 <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
               </a>
             </div>
             <div class="campaign-meta">
-              <a href="/campaigns/40">
-                <p class="campaign-title">Shadow of Ages</p>
-                <p class="campaign-author">Created by: @moscow_mule55.</p>
+              <a href="/campaigns/<%= campaign.id %>">
+                <p class="campaign-title"><%= campaign.title %></p>
+                <p class="campaign-author">Created by: @<%= User.find(campaign.user_id).username %></p>
               </a>
             </div>
           </div>
         </div>
-        <!-- second item -->
-        <div class="col-lg-6 col-md-6">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/41">
-                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
-              </a>
-            </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/41">
-                <p class="campaign-title">The Unliving</p>
-                <p class="campaign-author">Created by: @pop_pop32 based off of @hawthorne's 'The Living'.</p>
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <% end %>
       </div>
     </div>
   </div>
-        <% @campaigns.each_with_index do |campaign,index| %>
-             <% if index>=@startIndex && index<= @endIndex  %>
-          <div class="col-lg-4">
-            <div class="campaign-wrapper">
-              <div class="campaign-img">
-                <a href="/campaigns/1">
-                  <img src="<%= campaign.url %>">
-                </a>
-              </div>
-              <div class="campaign-meta">
-                <a href="/campaigns/<%= campaign.id %>">
-                  <p class="campaign-title"><%= campaign.title %></p>
-                  <p class="campaign-author">
-                  Created by: @<%= User.find(campaign.user_id).username %>
-                  </p>
-                </a>
-              </div>
+
+  <!-- other campaigns -->
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="row">
+      <% @campaigns.each_with_index do |campaign,index| %>
+        <% if index >= @startIndex && index <= @endIndex %>
+        <div class="col-lg-4">
+          <div class="campaign-wrapper">
+            <div class="campaign-img">
+              <a href="/campaigns/1">
+                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
+              </a>
+            </div>
+            <div class="campaign-meta">
+              <a href="/campaigns/<%= campaign.id %>">
+                <p class="campaign-title"><%= campaign.title %></p>
+                <p class="campaign-author">
+                Created by: @<%= User.find(campaign.user_id).username %>
+                </p>
+              </a>
             </div>
           </div>
-          <% end %>
+        </div>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
