@@ -233,6 +233,36 @@ textarea[name="beats[]"]:focus {
   margin: 0;
 }
 
+<<<<<<< HEAD
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left.active {
+    left: 33%;
+  }
+
+  .row-offcanvas-left.active .sidebar-offcanvas {
+    left: -33%;
+    position: absolute;
+    top: 0;
+    width: 33%;
+    margin-left: 5px;
+  }
+
+  #sidebar, #sidebar a, #sidebar-footer a {
+    padding-left:3px;
+  }
+  #sidebar {
+    height: 100%;
+    width: 30%;
+  }
+}
+=======
 
 div.stars {
   width: 270px;
@@ -279,3 +309,4 @@ label.star:before {
   line-height: 1.5;
   letter-spacing: 0.03em;
 }
+>>>>>>> a2243ce46e61124845175629f9b37ce8fefee291

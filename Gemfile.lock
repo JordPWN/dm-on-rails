@@ -31,8 +31,14 @@ GEM
     backports (3.6.8)
     bond (0.5.1)
     builder (3.2.2)
+<<<<<<< HEAD
+    byebug (9.0.4)
+    coderay (1.1.1)
+    daemons (1.2.3)
+=======
     byebug (8.2.4)
     coderay (1.1.0)
+>>>>>>> a2243ce46e61124845175629f9b37ce8fefee291
     erubis (2.7.0)
     faker (1.6.3)
       i18n (~> 0.5)
@@ -140,6 +146,3 @@ DEPENDENCIES
   sinatra-paginate (~> 0.1.0)
   sqlite3
   tux
-
-BUNDLED WITH
-   1.11.2
