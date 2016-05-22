@@ -29,11 +29,9 @@ group :development, :test do
   gem 'shotgun'
   gem 'sqlite3'
 end
-<<<<<<< HEAD
-=======
 
 group :production do 
 	# gem 'thin'
  #  gem 'pg'
 end
->>>>>>> a2243ce46e61124845175629f9b37ce8fefee291
+
