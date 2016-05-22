@@ -13,6 +13,7 @@ get '/campaigns' do
 end
 
 post '/campaigns/:id/copy' do
+	redirect "/users/signup" unless logged_in?
 	campaign = Campaign.find(params[:id])
 	new_campaign = Campaign.create(
 		title: campaign.title,
@@ -55,6 +56,7 @@ get '/campaigns/delete' do
 end
 
 post '/campaigns/new' do
+	redirect "/users/signup" unless logged_in?
 	new_campaign = Campaign.create(
 		title: params[:title],
 		url: params[:url],
@@ -95,6 +97,7 @@ end
 
 
 get '/campaigns/:id/play' do
+	redirect "/users/signup" unless logged_in?
 	@campaign = Campaign.find params[:id]
 	@game = @user.games.find_by(campaign_id: params[:id])
 	unless @game
