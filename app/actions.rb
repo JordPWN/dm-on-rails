@@ -17,6 +17,13 @@ helpers do
   def logged_in?
     !@user.nil?
   end
+
+  def owns_campaign
+    @campaign = Campaign.find params[:id]
+    if !@user.campaigns
+      halt 403 
+    end
+  end
 end
 
 get '/' do
