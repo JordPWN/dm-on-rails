@@ -34,7 +34,7 @@
           </a>
         </div>
         <!-- copy button -->
-        <% if @user  %>
+        <% if logged_in? %>
         <form action="/campaigns/<%= @campaign.id %>/copy" method="post" class="campaign-copy-button">
           <div>
             <a class="btn btn-default btn-lg" name="copy_submit" input type="submit" value="">Copy Campaign</a>

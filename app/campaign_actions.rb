@@ -28,7 +28,7 @@ end
 
 get '/campaigns/:id' do
 	@campaign = Campaign.find params[:id]
-	@game = @user.games.find_by(campaign_id: @campaign.id)
+	@game = @user.games.find_by(campaign_id: @campaign.id) if logged_in?
   erb :'/campaigns/show'
 end
 
