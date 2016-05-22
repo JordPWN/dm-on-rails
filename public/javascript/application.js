@@ -122,25 +122,6 @@ $( document ).ready(function() {
 		});
 	}
 
-
-	$(".stars .star").click(function(e){
-		// var rating = $(this).val();
-		// var game_id = $(this).data("game");
-		// console.log(rating, game_id);
-		$("#save").data('rating', $(this).val());
-		console.log($(this).val());
-	});
-
-	$("#save").click(function(e){
-		$.ajax({
-			url: '/games/rating/save',
-			method: 'POST',
-			data: {campaign_rating: $(this).data("rating"), game_id: $(this).data("game")}
-
-		});
-
-	});		
-
 	 var mouseTimer = null, cursorVisible = true;
 
     function disappearCursor() {
@@ -160,6 +141,4 @@ $( document ).ready(function() {
         mouseTimer = window.setTimeout(disappearCursor, 5000);
     };
 
-
 });
-

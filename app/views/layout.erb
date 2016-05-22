@@ -8,17 +8,13 @@
   --> 
   <!-- bootstrap -->
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css">
   <!-- custom stylesheet -->
-  <link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/stylesheets/application.css">
   <title>  <%= !@campaign || @campaign.title.nil? ? "DM on Rails" : "#{@campaign.title} - DM on Rails" %></title>
 </head>
-<% if @campaign && @request.path_info == "/campaigns/#{@campaign.id}" %>
-<body class="campaign-page">
-<% else %>
 <body>
-<% end %>
   <%= erb :_navbar %>
   <%= yield %>
   <div id="scripts">
