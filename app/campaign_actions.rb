@@ -58,7 +58,8 @@ post '/campaigns/new' do
 	params[:beats].each do |new_beat|
 		new_campaign.beats.create(
 			ordinance: index,
-			content: new_beat
+			content: new_beat,
+			cue: params[:cues][index]
 		)
 		index += 1
 	end

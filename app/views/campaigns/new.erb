@@ -33,6 +33,7 @@
                 <li role="presentation">
                   <a href="#preview1" aria-controls="profile" role="tab" data-toggle="tab" data-role="preview">Preview</a>
                 </li>
+                <li role="presentation"><a href="#cue1" aria-controls="home" role="tab" data-toggle="tab">Cue</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -42,6 +43,9 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="preview1">
                   <div></div>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="cue1">
+                  <textarea id="cue-1" class="form-control" rows="3" name="cues[]"></textarea>
                 </div>
               </div>
 
@@ -72,6 +76,7 @@
         <li role="presentation">
           <a href="#preview{{id}}" aria-controls="profile" role="tab" data-toggle="tab" data-role="preview">Preview</a>
         </li>
+        <li role="presentation"><a href="#cue{{id}}" aria-controls="home" role="tab" data-toggle="tab">Cue</a></li>
       </ul>
 
       <!-- Tab panes -->
@@ -81,6 +86,9 @@
         </div>
         <div role="tabpanel" class="tab-pane" id="preview{{id}}">
           <div></div>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="cue{{id}}">
+          <textarea id="cue-{{id}}" class="form-control" rows="3" name="cues[]"></textarea>
         </div>
       </div>
 
