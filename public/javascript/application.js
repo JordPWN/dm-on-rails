@@ -16,6 +16,18 @@ $( document ).ready(function() {
 	};
 
 
+	// function showBeat(ord){
+	// 	$('#beats-' + ord).show();
+	// 	$.ajax({
+	// 		url: 'cue/load',
+	// 		method: 'POST',
+	// 		data: {beat_order: ord, campaign_id: $('#campaign-id').val()}
+	// 		success: function(content){
+	// 			$('#cue-card').html(content);
+	// 		}
+	// 	});
+	// }
+
 	$('#beats-list').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e){
 		if($(e.target).data('role') === "preview"){
 			//Switched to preview
