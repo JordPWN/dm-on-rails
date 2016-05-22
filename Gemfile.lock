@@ -31,11 +31,15 @@ GEM
     backports (3.6.8)
     bond (0.5.1)
     builder (3.2.2)
+<<<<<<< HEAD
     byebug (9.0.4)
     coderay (1.1.1)
     daemons (1.2.3)
+=======
+    byebug (8.2.4)
+    coderay (1.1.0)
+>>>>>>> a2243ce46e61124845175629f9b37ce8fefee291
     erubis (2.7.0)
-    eventmachine (1.2.0.1)
     faker (1.6.3)
       i18n (~> 0.5)
     i18n (0.7.0)
@@ -112,10 +116,6 @@ GEM
       logutils (>= 0.6.1)
       props (>= 1.1.2)
       rubyzip (>= 1.0.0)
-    thin (1.6.4)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (~> 1.0)
     thread_safe (0.3.5)
     tilt (2.0.4)
     tux (0.3.0)
@@ -145,7 +145,6 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-paginate (~> 0.1.0)
   sqlite3
-  thin
   tux
 
 BUNDLED WITH

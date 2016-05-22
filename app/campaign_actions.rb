@@ -1,13 +1,3 @@
-helpers do
-	def owns_campaign
-		@campaign = Campaign.find params[:id]
-		if !@user.campaigns
-	    halt 403 
-	  end
-	end
-end
-
-
 get '/campaigns' do
 	erb :'index'
 end
@@ -38,6 +28,7 @@ end
 
 get '/campaigns/:id' do
 	@campaign = Campaign.find params[:id]
+	@game = @user.games.find_by(campaign_id: @campaign.id)
   erb :'/campaigns/show'
 end
 
@@ -117,4 +108,9 @@ end
 get '/campaigns/:id/play/:beat' do
 
 
+end
+
+get '/campaigns/:id/rating' do
+  @campaign = Campaign.find params[:id]
+  erb :'campaigns/rating'
 end
