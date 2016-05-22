@@ -90,9 +90,9 @@ post '/campaigns/:id/edit' do
 		end
 	end
 
-
 	redirect "/campaigns/#{campaign.id}"
 end
+
 
 get '/campaigns/:id/play' do
 	@campaign = Campaign.find params[:id]
