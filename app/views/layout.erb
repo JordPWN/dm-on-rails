@@ -17,8 +17,9 @@
   <title>  <%= !@campaign || @campaign.title.nil? ? "DM on Rails" : "#{@campaign.title} - DM on Rails" %></title>
 </head>
 <body>
-<% end %>
+
   <div class="bg-overlay"></div>
+
   <%= erb :_navbar %>
   <%= yield %>
 
