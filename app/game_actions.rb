@@ -14,6 +14,7 @@ post '/games/rating/save' do
   @game = Game.find(params[:game_id])
   @game.update(rating: @campaign_rating)
   redirect '/'
+end
 
 post '/cue/load' do	
 	@beat_order = params[:beat_order]
