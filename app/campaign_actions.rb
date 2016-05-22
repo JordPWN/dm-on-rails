@@ -109,5 +109,7 @@ end
 
 get '/campaigns/:id/rating' do
   @campaign = Campaign.find params[:id]
+  @game = @user.games.find_by(campaign_id: params[:id])
   erb :'campaigns/rating'
 end
+
