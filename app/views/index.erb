@@ -1,8 +1,13 @@
 <div class="container campaign-container">
+  <% if @current_page == 1 %>
   <!-- first row -->
   <div class="row">
     <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1">
-      <h1>Featured Campaigns</h1>
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Featured Campaigns</h1>
+        </div>
+      </div>
       <div class="row">
         <% @featured_campaigns.each do |campaign| %>
         <!-- featured items -->
@@ -17,9 +22,11 @@
               <a href="/campaigns/<%= campaign.id %>">
                 <p class="campaign-title"><%= campaign.title %></p>
                 <p class="campaign-author">Created by: @<%= User.find(campaign.user_id).username %></p>
+                <% if campaign.origin %>
                 <p class="campaign-author">
-                Origin: @origin
+                Origin: @<%= User.find(campaign.origin).username %>
                 </p>
+                <% end %>
               </a>
             </div>
           </div>
@@ -28,6 +35,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
   <!-- other campaigns -->
   <div class="row">
@@ -48,9 +56,11 @@
                 <p class="campaign-author">
                 Created by: @<%= User.find(campaign.user_id).username %>
                 </p>
+                <% if campaign.origin %>
                 <p class="campaign-author">
-                Origin: @origin
+                Origin: @<%= User.find(campaign.origin).username %>
                 </p>
+                <% end %>
               </a>
             </div>
           </div>
@@ -69,7 +79,7 @@
           <% for i in 1..@total_pages %>
             <% if i == 1 && @current_page > 1 %>
             <li class="">
-              <a href="/?pageid=<%=@current_page-1%>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+              <a href="/?pageid=<%=@current_page-1%>" aria-label="Previous"><span aria-hidden="true">&larr;</span></a>
             </li>
             <li>
               <a href="/?pageid=<%=i%>"><%=i%></a>
@@ -90,7 +100,7 @@
               <a href="/?pageid=<%=i%>"><%=i%></a>
             </li>
             <li class="">
-              <a href="/?pageid=<%=@current_page+1%>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+              <a href="/?pageid=<%=@current_page+1%>" aria-label="Next"><span aria-hidden="true">&rarr;</span></a>
             </li>
 
             <% else %>
