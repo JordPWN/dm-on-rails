@@ -95,21 +95,22 @@ post '/campaigns/:id/edit' do
 end
 
 get '/campaigns/:id/play' do
-	campaign = Campaign.find params[:id]
-	game = user.games.find_by(campaign_id: params[:id])
-	unless game
-		game = Game.create(
-			campaign_id: campaign.id,
-			user_id: user.id,
-			beat_id: campaign.beats.find_by(ordinance: 0).id
+	@campaign = Campaign.find params[:id]
+	@game = @user.games.find_by(campaign_id: params[:id])
+	unless @game
+		@game = Game.create(
+			campaign_id: @campaign.id,
+			user_id: @user.id,
+			beat_id: @campaign.beats.find_by(ordinance: 0).id
 		)
-		beat_order = 0
+		@beat_order = 0
 	else
-		beat_order = game.beat.ordinance
+		@beat_order = @game.beat.ordinance
 	end
-	campaign_beats = campaign.beats.order(:ordinance)
+	@campaign_beats = @campaign.beats.order(:ordinance)
 	erb :'campaigns/play'
 end
+	
 
 get '/campaigns/:id/play/:beat' do
 
