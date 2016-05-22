@@ -16,7 +16,6 @@ gem 'pg'
 gem 'faker'
 
 gem 'markdown'
-gem 'thin'
 
 gem 'kaminari', :require => 'kaminari/sinatra'
 
