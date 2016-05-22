@@ -106,3 +106,8 @@ get '/campaigns/:id/play/:beat' do
 
 
 end
+
+get '/campaigns/:id/rating' do
+  @campaign = Campaign.find params[:id]
+  erb :'campaigns/rating'
+end
