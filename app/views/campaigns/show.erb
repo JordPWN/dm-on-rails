@@ -27,7 +27,7 @@
           </div>
         </form>
         <!-- edit button -->
-        <% if @user.id == @campaign.user_id %>
+        <% if @user && @user.id == @campaign.user_id %>
         <div class="campaign-edit-button">
           <a class="btn btn-default btn-lg" href="/campaigns/<%= @campaign.id %>/edit" role="button">Edit Campaign</a>
         </div>

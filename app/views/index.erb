@@ -30,27 +30,39 @@
   <div class="row">
     <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1">
       <div class="row">
-      <% @campaigns.each_with_index do |campaign,index| %>
-        <% if index >= @startIndex && index <= @endIndex %>
-        <div class="col-lg-4">
-          <div class="campaign-wrapper">
-            <div class="campaign-img">
-              <a href="/campaigns/<%= campaign.id %>">
-                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
-              </a>
+        <% @campaigns.each_with_index do |campaign,index| %>
+          <% if index >= @startIndex && index <= @endIndex %>          
+            <div class = " col-lg-4"> 
+             <div class = "card">
+              <div class="campaign-wrapper">  
+              
+                  <div class = "front">
+                    <div class="campaign-img">
+                      <a href="/campaigns/<%= campaign.id %>">
+                        <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
+                      </a>
+                    </div>
+                    <div class="campaign-meta">
+                      <a href="/campaigns/<%= campaign.id %>">
+                        <p class="campaign-title"><%= campaign.title %></p>
+                        <p class="campaign-author">
+                        Created by: @<%= User.find(campaign.user_id).username %>
+                        </p>
+                      </a>
+                    </div>
+                    <!-- end of campaign-meta -->
+                  </div>
+                  <!-- end of front -->
+                  <div class = "back">
+                    <%= campaign.description %>
+                  </div>
+                </div>
+              <!-- end of card -->
+              </div> 
+            <!-- end of campaign wrapper -->
             </div>
-            <div class="campaign-meta">
-              <a href="/campaigns/<%= campaign.id %>">
-                <p class="campaign-title"><%= campaign.title %></p>
-                <p class="campaign-author">
-                Created by: @<%= User.find(campaign.user_id).username %>
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
       </div>
     </div>
   </div>

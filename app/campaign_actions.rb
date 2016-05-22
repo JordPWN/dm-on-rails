@@ -95,6 +95,7 @@ post '/campaigns/:id/edit' do
 end
 
 get '/campaigns/:id/play' do
+	erb :'/signup' unless logged_in?
 	@campaign = Campaign.find params[:id]
 	@game = @user.games.find_by(campaign_id: params[:id])
 	unless @game
