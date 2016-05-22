@@ -107,7 +107,6 @@ end
 
 get '/campaigns/:id/play/:beat' do
 
-
 end
 
 get '/campaigns/:id/rating' do
