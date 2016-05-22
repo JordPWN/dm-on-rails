@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
-	// function showBeat(ord){
-	// 	$('#beats-' + ord).show();
+	function showBeat(ord){
+		$('#beats-' + ord).show();
 	// 	$.ajax({
 	// 		url: 'cue/load',
 	// 		method: 'POST',
@@ -10,7 +10,7 @@ $( document ).ready(function() {
 	// 			$('#cue-card').html(content);
 	// 		}
 	// 	});
-	// }
+	}
 
 	var beat_counter = parseInt($("#beat-order").val());
 
