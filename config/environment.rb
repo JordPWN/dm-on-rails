@@ -10,7 +10,6 @@ require 'sinatra/contrib/all' # Requires cookies, among other things
 
 require 'sinatra/paginate'
 
-require 'pry'
 require 'byebug'
 require 'markdown'
 
