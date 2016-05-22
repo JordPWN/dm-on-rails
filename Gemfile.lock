@@ -143,3 +143,6 @@ DEPENDENCIES
   sinatra-paginate (~> 0.1.0)
   sqlite3
   tux
+
+BUNDLED WITH
+   1.11.2

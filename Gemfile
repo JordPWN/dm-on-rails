@@ -16,7 +16,6 @@ gem 'pg'
 gem 'faker'
 
 gem 'markdown'
-gem 'thin'
 
 gem 'kaminari', :require => 'kaminari/sinatra'
 
@@ -32,6 +31,5 @@ end
 
 group :production do 
 	# gem 'thin'
- #  gem 'pg'
+  #  gem 'pg'
 end
-

@@ -2,14 +2,7 @@ $( document ).ready(function() {
 
 	function showBeat(ord){
 		$('#beats-' + ord).show();
-	// 	$.ajax({
-	// 		url: 'cue/load',
-	// 		method: 'POST',
-	// 		data: {beat_order: ord, campaign_id: $('#campaign-id').val()}
-	// 		success: function(content){
-	// 			$('#cue-card').html(content);
-	// 		}
-	// 	});
+		$('#cues-' + ord).show();
 	}
 
 	var beat_counter = parseInt($("#beat-order").val());
@@ -32,24 +25,15 @@ $( document ).ready(function() {
 		}
 	});
 
-		$('.new-cue').on('shown.bs.tab', 'a[data-toggle="tab"]', function(e){
-		if($(e.target).data('role') === "preview"){
-			//Switched to preview
-			var editor = $(e.relatedTarget.getAttribute('href') + ' textarea');
-			var preview = $(e.target.getAttribute('href') + ' > div');
-			preview.html(marked(editor.val()));
-		}
-	});
-
 	var all_beats = $('[id^=beats]');
+	var all_cues = $('[id^=cues]');
 
 	showBeat(beat_counter);
-
-	
 
 	$('.next-beat').click(function(){
 		if(beat_counter+1 < all_beats.length){
 			all_beats.hide();
+			all_cues.hide();
 			showBeat(++beat_counter);
 			save_game_state();
 		}
@@ -59,9 +43,16 @@ $( document ).ready(function() {
 	{
 		if(beat_counter > 0){
 			all_beats.hide();
+			all_cues.hide();
 			showBeat(--beat_counter);
 			save_game_state();
 		}
+	});
+
+	$('.cue-card-btn').click(function(e){
+		e.preventDefault;
+		$(this).parent().toggleClass('open');
+		$(this).children('span').toggleClass('glyphicon-question-sign glyphicon-remove-sign');
 	});
 
 
@@ -88,8 +79,10 @@ $( document ).ready(function() {
 	 	$(document).on("mousemove", function(e){
 	 		if(e.clientY > .66 * $(window).height()){
 	 			$('#play-game-nav').addClass('shown');
+	 			// $('#game-nav-triangle>a>span').removeClass('glyphicon-triangle-top').addClass('glyphicon-triangle-bottom');
 	 		}else{
 	 			$('#play-game-nav').removeClass('shown');
+	 			// $('#game-nav-triangle>a>span').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-top');
 	 		}
 	 		if(e.clientY < .33 * $(window).height()){
 	 			$('#top-nav-bar').addClass('shown');
@@ -122,6 +115,24 @@ $( document ).ready(function() {
 		});
 	}
 
+<<<<<<< HEAD
+=======
+
+	$(".stars .star").click(function(e){
+		$("#save").data('rating', $(this).val());
+		console.log($(this).val());
+	});
+
+	$("#save").click(function(e){
+		$.ajax({
+			url: '/games/rating/save',
+			method: 'POST',
+			data: {campaign_rating: $(this).data("rating"), game_id: $(this).data("game")}
+		});
+
+	});		
+
+>>>>>>> cuecard
 	 var mouseTimer = null, cursorVisible = true;
 
     function disappearCursor() {
