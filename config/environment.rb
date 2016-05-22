@@ -10,7 +10,6 @@ require 'sinatra/contrib/all' # Requires cookies, among other things
 
 require 'sinatra/paginate'
 
-require 'byebug'
 require 'markdown'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
