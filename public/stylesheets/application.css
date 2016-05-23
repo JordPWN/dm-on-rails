@@ -67,6 +67,10 @@ a:focus {
   width: 40px;
 }
 
+#top-nav-bar {
+  opacity: 0.85;
+}
+
 #top-nav-bar.hideme{
   top: -50px;
   transition-duration: .25s;
