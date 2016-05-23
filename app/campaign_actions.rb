@@ -7,7 +7,7 @@ post '/campaigns/:id/copy' do
 	campaign = Campaign.find(params[:id])
 	new_campaign = Campaign.create(
 		title: campaign.title,
-		user_id: current_user.id,
+		user_id: @user.id,
 		origin: campaign.user_id,
 		url: campaign.url,
 		description: campaign.description
@@ -68,6 +68,7 @@ end
 
 post '/campaigns/:id/edit' do
 	campaign = Campaign.find params[:id]
+	params[:url] =  "http://i.imgur.com/lV1W9Ch.jpg" unless params[:url] 
 	campaign.update(
 		title: params[:title],
 		url: params[:url],

@@ -31,7 +31,7 @@
         <% if logged_in? %>
         <form action="/campaigns/<%= @campaign.id %>/copy" method="post" class="campaign-copy-button">
           <div>
-            <a class="btn btn-default btn-lg" name="copy_submit" input type="submit" value="">Copy Campaign</a>
+            <button class="btn btn-default btn-lg" name="copy_submit" type="submit" value="">Copy Campaign</button>
           </div>
         </form>
         <% end %>
