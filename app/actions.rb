@@ -27,8 +27,8 @@ helpers do
 end
 
 get '/' do
-  @campaigns = Campaign.all.order(created_at: :DESC)
-  @featured_campaigns = @campaigns.limit(2)
+  @campaigns = Campaign.all.order(created_at: :ASC)
+  @featured_campaigns = @campaigns.last(2)
   @other_campaigns = @campaigns.offset(2)
   @total_pages = ((@campaigns.length.to_f)/@records_per_page.to_f).to_f
   @total_pages = @total_pages.ceil
