@@ -15,6 +15,9 @@ $( document ).ready(function() {
 			method: 'POST',
 			data: {game_id: $('#game-id').val(), campaign_id: $('#campaign-id').val(), beat_order: beat_counter}
 		});
+		if((beat_counter+1) >= (all_beats.length)){
+		$(location).attr('href', '/campaigns/' + $('#campaign-id').val() + '/rating');
+		}
 	};
 
 
@@ -122,14 +125,14 @@ $( document ).ready(function() {
 		console.log($(this).val());
 	});
 
-	$("#save").click(function(e){
-		$.ajax({
-			url: '/games/rating/save',
-			method: 'POST',
-			data: {campaign_rating: $(this).data("rating"), game_id: $(this).data("game")}
-		});
+	// $("#save").click(function(e){
+	// 	$.ajax({
+	// 		url: '/games/rating/save',
+	// 		method: 'POST',
+	// 		data: {campaign_rating: $(this).data("rating"), game_id: $(this).data("game")}
+	// 	});
 
-	});
+	// });
 
 	var mouseTimer = null, cursorVisible = true;
 
