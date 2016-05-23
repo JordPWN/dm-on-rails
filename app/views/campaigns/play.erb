@@ -22,7 +22,7 @@
 
 <!-- cue card -->
 <% @campaign_beats.each do |x| %>
-  <% unless x.cue.nil? %>
+  <% unless x.cue.nil? || x.cue.strip == "" %>
   <nav id="cues-<%= x.ordinance %>" class="cue-cards" style="display: none">
     <a class="cue-card-btn"><span class="glyphicon glyphicon-question-sign"></span></a>
     <div   class="form-group">
