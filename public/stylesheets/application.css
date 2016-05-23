@@ -225,11 +225,16 @@ p.campaign-author {
 
 .campaign-banner {
   width: 100%;
+  max-height: 150%;
+  overflow: hidden;
   position: relative;
   margin-top: -30px;
 }
 
-
+.campaign-img {
+  overflow: hidden;
+  max-height: 35vh;
+}
 
 .campaign-banner-overlay {
   width: 100%;
