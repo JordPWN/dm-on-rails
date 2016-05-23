@@ -41,6 +41,11 @@
   <!-- other campaigns -->
   <div class="row">
     <div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1">
+          <div class="row">
+        <div class="col-lg-12">
+          <h1>Recent Campaigns</h1>
+        </div>
+      </div>
       <div class="row">
       <% @campaigns.each_with_index do |campaign,index| %>
         <% if index >= @startIndex && index <= @endIndex %>
