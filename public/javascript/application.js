@@ -102,6 +102,7 @@ $( document ).ready(function() {
 	        case 37: // left
 	        	if(beat_counter > 0){
 							all_beats.hide();
+							all_cues.hide();
 							showBeat(--beat_counter);
 							save_game_state();
 						}
@@ -110,6 +111,7 @@ $( document ).ready(function() {
 	        case 39: // right
 	        	if(beat_counter+1 < all_beats.length){
 							all_beats.hide();
+							all_cues.hide();
 							showBeat(++beat_counter);
 							save_game_state();
 						}
