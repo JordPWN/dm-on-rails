@@ -101,6 +101,18 @@ nav.game-nav a.btn {
   font-style: italic;
 }
 
+#game-nav-triangle {
+  position: absolute;
+  left: 50%;
+  top: -25px;
+  background-color: #0d053d;
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+}
+
 .game-nav-wrapper {
   width: 99%;
   padding-left: 0.5%;
@@ -110,13 +122,36 @@ nav.game-nav a.btn {
   margin: 0;
 }
 
-.play-menu-container {
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 30%;
+.cue-cards {
+  position: fixed;
+  top: 5em;
+  right: -665px;
+  width: 700px;
+  padding: 20px 20px 20px 35px;
+  background-color: #D92B54;
+  border-radius: 5px;
+
+  -webkit-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
+
+.cue-card-btn {
+  position: absolute;
+  left: 10px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.cue-cards.open {
+  right: 0;
+}
+
+.cue-cards>.well {
+  margin: 0;
+}
+
+/* index */
 
 .campaign-container {
 
@@ -194,8 +229,7 @@ p.campaign-author {
 
 .campaign-banner-bottom {
   position: absolute;
-  bottom: 30%; 
-  /*padding-top: 2em;*/
+  bottom: 30%;
   text-align: center; 
 }
 
@@ -260,7 +294,6 @@ textarea[name="beats[]"]:focus {
   margin: 0;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 768px) {
   .row-offcanvas {
     position: relative;
@@ -289,7 +322,7 @@ textarea[name="beats[]"]:focus {
     width: 30%;
   }
 }
-=======
+
 
 div.stars {
   width: 270px;
@@ -302,7 +335,7 @@ label.star {
   float: right;
   padding: 10px;
   font-size: 36px;
-  color: #444;
+  color: #white;
   transition: all .2s;
 }
 
@@ -336,4 +369,7 @@ label.star:before {
   line-height: 1.5;
   letter-spacing: 0.03em;
 }
->>>>>>> a2243ce46e61124845175629f9b37ce8fefee291
+<<<<<<< HEAD
+
+=======
+>>>>>>> cuecard

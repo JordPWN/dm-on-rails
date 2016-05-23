@@ -8,8 +8,8 @@
         <input id="beat-order" type="hidden" value="<%= @beat_order %>">
         <input id="game-id" type="hidden" value="<%= @game.id %>">
         <input id="campaign-id" type="hidden" value="<%= @campaign.id %>">
-          <% @campaign.beats.each do |x| %>
-          <div id="beats-<%= x.ordinance %>" class="md-preview" style="display: none">
+          <% @campaign_beats.each do |x| %>
+          <div id="beats-<%= x.ordinance %>" class="md-preview fade-in" style="display: none">
             <%= Markdown.new(x.content).to_html.html_safe %>
           </div>
           <% end %>
@@ -19,7 +19,26 @@
     </div>
   </div>
 </div>
+
+<!-- cue card -->
+<% @campaign_beats.each do |x| %>
+  <% unless x.cue.nil? %>
+  <nav id="cues-<%= x.ordinance %>" class="cue-cards" style="display: none">
+    <a class="cue-card-btn"><span class="glyphicon glyphicon-question-sign"></span></a>
+    <div   class="form-group">
+      <div class="well">
+        <div class="md-preview">
+          <%= Markdown.new(x.cue).to_html.html_safe %>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <% end %>
+<% end %>
+
+<!-- game navbar -->
 <nav class="game-nav navbar navbar-default navbar-fixed-bottom" id="play-game-nav">
+  <div id="game-nav-triangle"><a href="#"><span class="glyphicon glyphicon-triangle-top"></span></a></div>
   <div class="game-nav-wrapper">
     <div class="col-xs-4">
       <button class="btn btn-default prev-beat">PREV</button>

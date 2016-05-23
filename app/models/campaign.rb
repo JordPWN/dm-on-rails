@@ -1,6 +1,6 @@
 class Campaign < ActiveRecord::Base
-	has_many :games
-	has_many :beats
+	has_many :games, dependent: :destroy 
+	has_many :beats, dependent: :destroy 
 
 	belongs_to :user
 
