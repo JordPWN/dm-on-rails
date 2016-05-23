@@ -1,19 +1,42 @@
 <div class = "container" id="current-games">
 	<h1>Current Games</h1>
-	<div class="jcarousel">
-	<ul>
 	 	<% @games.each do |game| %>
-	 	<li>
-	 	<div class = "game-container">
-	    <img src="<%= game.campaign.url %>">
-	    </div>
-	    </li>
+	 	<div class="col-lg-4 col-md-4">
+          <div class="campaign-wrapper">
+            <div class="campaign-img">
+              <a href="/campaigns/<%= game.campaign.id %>">
+                <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
+              </a>
+            </div>
+            <div class="campaign-meta">
+              <a href="/campaigns/<%= game.campaign.id %>">
+                <p class="campaign-title"><%= game.campaign.title %></p>
+                <p class="campaign-author">Created by: @<%= User.find(game.campaign.user_id).username %></p>
+                <% if game.campaign.origin %>
+                <p class="campaign-author">
+                Origin: @<%= User.find(game.campaign.origin).username %>
+                </p>
+                <% end %>
+              </a>
+            </div>
+          </div>
+        </div>
 	  <% end %>
-	  </ul>
 	  </div>
-	</div>
 </div>
 
-<!-- Prev/next controls -->
-  <a href="#" class="jcarousel-control-prev">&lsaquo; Prev</a>
-  <a href="#" class="jcarousel-control-next">Next &rsaquo;</a>
+<div class = container id="my-works">
+	<h1>My Works</h1>
+	<% @created_campaigns.each do |camp| %>
+		<div class="col-lg-4 col-md-4">
+	    <div class="campaign-wrapper">
+	      <div class="campaign-img">
+	        <a href="/campaigns/<%= camp.id %>">
+	          <img src="http://blogs-images.forbes.com/erikkain/files/2014/06/shadow-of-mordor.jpg">
+	          <p class="campaign-title"><%= camp.title %></p>
+	        </a>
+	      </div>
+	    </div>
+	  </div>
+	<% end %>
+</div>
