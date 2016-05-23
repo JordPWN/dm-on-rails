@@ -115,9 +115,6 @@ $( document ).ready(function() {
 		});
 	}
 
-<<<<<<< HEAD
-=======
-
 	$(".stars .star").click(function(e){
 		$("#save").data('rating', $(this).val());
 		console.log($(this).val());
@@ -130,26 +127,25 @@ $( document ).ready(function() {
 			data: {campaign_rating: $(this).data("rating"), game_id: $(this).data("game")}
 		});
 
-	});		
+	});
 
->>>>>>> cuecard
-	 var mouseTimer = null, cursorVisible = true;
+	var mouseTimer = null, cursorVisible = true;
 
-    function disappearCursor() {
-        mouseTimer = null;
-        document.body.style.cursor = "none";
-        cursorVisible = false;
-    }
+  function disappearCursor() {
+      mouseTimer = null;
+      document.body.style.cursor = "none";
+      cursorVisible = false;
+  }
 
-    document.onmousemove = function() {
-        if (mouseTimer) {
-            window.clearTimeout(mouseTimer);
-        }
-        if (!cursorVisible) {
-            document.body.style.cursor = "default";
-            cursorVisible = true;
-        }
-        mouseTimer = window.setTimeout(disappearCursor, 5000);
-    };
+  document.onmousemove = function() {
+      if (mouseTimer) {
+          window.clearTimeout(mouseTimer);
+      }
+      if (!cursorVisible) {
+          document.body.style.cursor = "default";
+          cursorVisible = true;
+      }
+      mouseTimer = window.setTimeout(disappearCursor, 5000);
+  };
 
 });

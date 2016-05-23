@@ -208,7 +208,7 @@ p.campaign-author {
 
 .campaign-banner-title,
 .campaign-banner-description {
-  text-shadow: 0px 2px 6px rgba(150, 150, 150, 0.6);
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .campaign-banner-button,
