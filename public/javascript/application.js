@@ -12,6 +12,8 @@ $( document ).ready(function() {
 	// 	});
 	}
 
+	$(".md-preview").fitText(2.0);
+
 	var beat_counter = parseInt($("#beat-order").val());
 
 	function save_game_state() {

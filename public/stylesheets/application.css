@@ -1,3 +1,16 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.md-preview {
+  text-align: center;
+}
+
+.md-preview img {
+  max-width: 100%;
+  height: auto;
+}
 body {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -46,6 +59,20 @@ a:focus {
   top: -50px;
   transition-duration: .25s;
 
+}
+
+.container .outer {
+    width: 100%;
+    padding-top: 75%; /* defines aspect ratio */
+    position: relative;
+}
+.container .outer .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-sze: 50vw;
 }
 
 #top-nav-bar.shown {
