@@ -10,8 +10,8 @@ post '/games/save' do
 end
 
 post '/games/rating/save' do
-  @campaign_rating = params[:campaign_rating]
-  @game = Game.find(params[:game_id])
+  @campaign_rating = params[:star]
+  @game = Game.find(params[:'game-id'])
   @game.update(rating: @campaign_rating)
   redirect '/'
 end
