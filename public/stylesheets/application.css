@@ -125,9 +125,11 @@ nav.game-nav a.btn {
 .cue-cards {
   position: fixed;
   top: 5em;
-  right: -665px;
-  width: 700px;
-  padding: 20px 20px 20px 35px;
+  /*right: -315px;
+  width: 350px;*/
+  right: -18em;
+  width: 20em;
+  padding: 1.5em 1.5em 1.5em 2em;
   background-color: #D92B54;
   border-radius: 5px;
 
@@ -136,9 +138,14 @@ nav.game-nav a.btn {
   transition: all 0.2s ease-in;
 }
 
+.cue-cards .md-preview {
+  text-align: left;
+  font-size: inherit !important;
+}
+
 .cue-card-btn {
   position: absolute;
-  left: 10px;
+  left: 0.5em;
   height: 100%;
   cursor: pointer;
 }
@@ -206,9 +213,7 @@ p.campaign-author {
   margin-top: -30px;
 }
 
-.campaign-banner .container {
-  width: 100%;
-}
+
 
 .campaign-banner-overlay {
   width: 100%;
@@ -223,19 +228,21 @@ p.campaign-author {
 
 .campaign-banner-top {
   position: absolute;
-  top: 0; 
   padding-top: 2em;
 }
 
 .campaign-banner-bottom {
   position: absolute;
-  bottom: 30%;
   text-align: center; 
 }
 
 .campaign-banner-title,
 .campaign-banner-description {
   text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.campaign-banner-description h4 {
+  line-height: 1.5;
 }
 
 .campaign-banner-button,
@@ -259,7 +266,8 @@ textarea.form-control {
   transition: all 0.2s ease-in;
 }
 
-textarea[name="beats[]"]:focus {
+textarea[name="beats[]"]:focus,
+textarea[name="cues[]"]:focus {
   height: 200px;
 }
 
@@ -323,6 +331,44 @@ textarea[name="beats[]"]:focus {
   }
 }
 
+@media screen and (max-width: 991px) {
+  .campaign-banner-top,
+  .campaign-banner-bottom {
+    top: 0; 
+    
+    width: 80%;
+  }
+
+  .campaign-banner-bottom {
+    right: 5em;
+    width: 20%;
+    padding-top: 5em;
+  }
+
+  .campaign-banner-bottom div[class^=col-] {
+    margin: 0;
+  }
+
+  .campaign-banner-bottom a.btn,
+  .campaign-banner-bottom button.btn {
+    margin-bottom: 2em;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .campaign-banner .container {
+    width: 100%;
+  }
+
+  .campaign-banner-top {
+    top: 0;
+  }
+
+  .campaign-banner-bottom {
+    text-align: center; 
+    bottom: 8em;
+  }
+}
 
 div.stars {
   width: 270px;
@@ -369,7 +415,3 @@ label.star:before {
   line-height: 1.5;
   letter-spacing: 0.03em;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> cuecard
