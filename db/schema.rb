@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160522195525) do
 
   create_table "beats", force: :cascade do |t|
     t.integer  "campaign_id"
+    t.integer  "user_id"
     t.text     "content"
     t.integer  "ordinance"
     t.datetime "created_at"
