@@ -5,13 +5,13 @@ configure do
   end
 
   set :database, {
-    host: 'ec2-54-227-240-164.compute-1.amazonaws.com',
+    host: 'ec2-54-235-246-220.compute-1.amazonaws.com',
     adapter: 'postgresql',  
     encoding: 'unicode',
-    database: 'd2bbll5u10tib7', 
+    database: 'd2n6kf3uva1t36', 
     pool: 2, 
-    username: 'fzhcyfxzicjbds',
-    password: 'mIWOFvXg2rDhi18vk3I45adHCw',
+    username: 'lnktbakblxuwiu',
+    password: 'JX8wc0frIv7ZBZoQXuVB_qu3eo',
     port: 5432
   }
 
